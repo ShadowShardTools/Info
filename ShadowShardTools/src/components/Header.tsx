@@ -23,14 +23,14 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="text-white bg-gradient-to-b from-slate-800 to-slate-900 shadow-md fixed w-full top-0 z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <div className="flex items-center">
-              <div className="h-8 w-8 bg-blue-600 rounded-md flex items-center justify-center text-white font-bold">L</div>
-              <span className="ml-2 text-xl font-bold text-gray-800">Logo</span>
+              <div className="h-8 w-8 bg-blue-600 rounded-md flex items-center justify-center font-bold">L</div>
+              <span className="ml-2 text-xl font-bold">ShadowShardTools</span>
             </div>
           </div>
 
@@ -40,9 +40,10 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors duration-200 lg:px-3"
+                className="relative inline-block px-2 py-2 text-sm font-medium transition-colors duration-200 lg:px-3 text-white hover:text-blue-600 group"
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </a>
             ))}
           </nav>
@@ -51,7 +52,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="hover:text-blue-600 focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -68,7 +69,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 hover:bg-gray-50"
               >
                 {item.name}
               </a>

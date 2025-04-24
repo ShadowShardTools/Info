@@ -17,8 +17,8 @@ interface ProductCardProps {
 function ProductCard({ product, isFeatured = false }: ProductCardProps) {
   return (
     <div
-      className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 
-        ${isFeatured ? 'w-full max-w-md' : 'w-full max-w-xs'}`}
+      className={`bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg shadow-md overflow-hidden transition-all duration-300 w-[24rem] h-[20rem]
+        ${isFeatured ? 'max-w-md' : 'max-w-xs'}`}
     >
       <div className="relative">
         <img
@@ -38,11 +38,6 @@ function ProductCard({ product, isFeatured = false }: ProductCardProps) {
           <span className="text-blue-600 font-medium text-lg">{product.price}</span>
         </div>
         <p className="text-gray-600 text-sm line-clamp-2 mb-4">{product.description}</p>
-        {isFeatured && (
-          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-            View Details
-          </button>
-        )}
       </div>
     </div>
   );
@@ -144,9 +139,9 @@ export default function InfiniteCarousel() {
   }, [isAnimating]);
 
   return (
-    <div className="relative w-full py-12 overflow-hidden bg-gray-50">
+    <div className="relative w-full py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Featured Products</h2>
+        <h2 className="text-2xl font-bold text-white text-center mb-8">Featured Products</h2>
 
         <div
           tabIndex={0}
@@ -163,24 +158,25 @@ export default function InfiniteCarousel() {
           onMouseLeave={handleMouseUp}
         >
           <div className="relative h-full flex justify-center items-center">
-            {[ 
-              { i: prevPrevIndex, offset: -400, z: 1, o: 0.2, s: 0.5 },
+            {[
+              { i: prevPrevIndex, offset: -400, z: 1, o: 0.01, s: 0.5 },
               { i: prevIndex, offset: -220, z: 2, o: 0.6, s: 0.8 },
               { i: centerIndex, offset: 0, z: 3, o: 1, s: 1, center: true },
               { i: nextIndex, offset: 220, z: 2, o: 0.6, s: 0.8 },
-              { i: nextNextIndex, offset: 400, z: 1, o: 0.2, s: 0.5 }
+              { i: nextNextIndex, offset: 400, z: 1, o: 0.01, s: 0.5 }
             ].map(({ i, offset, z, o, s, center }) => (
               <div
                 key={i}
-                className="absolute top-1/2 transition-all duration-800 ease-out"
+                className="absolute top-1/2"
                 style={{
                   zIndex: z,
                   opacity: o,
+                  transition: 'transform 600ms ease-in-out, opacity 600ms ease-in-out',
                   transform: `
-                    translateY(-50%) 
+                    translateY(-50%)
                     translateX(${offset + (isDragging ? dragOffset * 0.4 : 0)}px)
                     scale(${s})
-                  `
+                  `,
                 }}
               >
                 <ProductCard product={products[i]} isFeatured={center} />
