@@ -27,7 +27,6 @@ export function CarouselItem({
     };
 
     const position = calcPosition();
-    const isCenter = position === 0;
 
     // Define visual properties based on position
     const getItemProps = () => {
