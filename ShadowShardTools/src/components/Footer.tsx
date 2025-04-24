@@ -1,5 +1,5 @@
-// Footer.tsx
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     useEffect(() => {
@@ -40,18 +40,18 @@ const Footer = () => {
 
                     {/* Quick links */}
                     <div className="flex flex-col items-start lg:items-center md:items-center">
-                        <div>
-                            <h3 className="text-lg font-semibold mb-6 relative inline-block">
-                                <span className="relative z-10">Quick Links</span>
-                                <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                            </h3>
-                            <ul className="space-y-3">
-                                <li><a href="/" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Home</a></li>
-                                <li><a href="/projects" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Projects</a></li>
-                                <li><a href="/services" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Services</a></li>
-                                <li><a href="/blog" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Blog</a></li>
-                            </ul>
-                        </div>
+                      <div>
+                        <h3 className="text-lg font-semibold mb-6 relative inline-block">
+                          <span className="relative z-10">Quick Links</span>
+                          <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                        </h3>
+                        <ul className="space-y-3">
+                          <li><Link to="/" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Home</Link></li>
+                          <li><Link to="/projects" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Projects</Link></li>
+                          <li><Link to="/products" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">Products</Link></li>
+                          <li><Link to="/about" className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300">About</Link></li>
+                        </ul>
+                      </div>
                     </div>
 
                     {/* Contact info */}

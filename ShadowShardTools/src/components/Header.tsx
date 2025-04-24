@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface NavItem {
   name: string;
@@ -37,14 +38,15 @@ export default function Header() {
           {/* Desktop Navigation - Always visible on medium screens and above */}
           <nav className="hidden md:flex space-x-4 lg:space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="relative inline-block px-2 py-2 text-sm font-medium transition-colors duration-200 lg:px-3 text-white hover:text-blue-600 group"
               >
                 <span className="relative z-10">{item.name}</span>
                 <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              </a>
+              </Link>
+
             ))}
           </nav>
 
@@ -66,13 +68,13 @@ export default function Header() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 hover:bg-gray-50"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

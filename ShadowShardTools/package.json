@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://shadowshardtools.github.io/ShadowShardToolsSite",
+  "homepage": "https://shadowshardtools.github.io/Info",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -17,6 +17,7 @@
     "lucide-react": "^0.503.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.1",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {

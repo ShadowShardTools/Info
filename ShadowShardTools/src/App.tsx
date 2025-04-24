@@ -1,42 +1,32 @@
-import { useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ProductCarousel from './components/ProductCarousel';
+import OrbCursor from "./components/cursor/OrbCursor";
+
+import Main from './pages/Main';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import Portfolio from './pages/Portfolio';
+import Products from './pages/Products';
 
 function App() {
-  const orbRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (orbRef.current) {
-        // Offset by half the orb size to center it on the cursor
-        const offset = 128; // half of 256px (orb size)
-        orbRef.current.style.left = `${e.clientX - offset}px`;
-        orbRef.current.style.top = `${e.clientY - offset}px`;
-      }
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
-    <>
+    <Router basename="/Info">
       <Header />
-      <div className="pt-20 relative bg-gradient-to-br from-gray-950 to-slate-800 text-white overflow-hidden">
-        {/* Orb follows cursor */}
-        <div
-          ref={orbRef}
-          className="orb fixed w-64 h-64 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 filter blur-3xl pointer-events-none z-10"
-          style={{ left: 0, top: 0 }}
-        />
-        <ProductCarousel />
-        <Footer />
+      <OrbCursor />
+      <div className="pt-20 relative overflow-hidden">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/products" element={<Products />} />
+        </Routes>
       </div>
-    </>
+      <Footer />
+    </Router>
   );
 }
 
