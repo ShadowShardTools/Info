@@ -110,7 +110,7 @@ export function Carousel<T>({ items, renderItem, title }: CarouselProps<T>) {
                     aria-roledescription="carousel"
                     role="region"
                     aria-label={`${title || 'Items'} Carousel`}
-                    className="relative h-96 mx-auto cursor-grab outline-none"
+                    className="relative h-96 mx-auto outline-none"
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}

@@ -9,7 +9,7 @@ export function Card({ children, className = '' }: CardProps) {
     return (
         <div
             className={`bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg shadow-md overflow-hidden 
-        transition-all duration-300 w-[22rem] h-[20rem]
+        transition-all duration-300 w-[22rem] h-[18rem]
         ${className}`}
         >
             {children}

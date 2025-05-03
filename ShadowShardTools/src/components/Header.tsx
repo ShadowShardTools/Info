@@ -24,15 +24,17 @@ export default function Header() {
   };
 
   return (
-    <header className="text-white bg-gradient-to-b from-slate-800 to-slate-900 shadow-md fixed w-full top-0 z-10">
+    <header className="text-white bg-gradient-to-b from-slate-800 to-slate-900 shadow-md fixed w-full top-0 z-10 border-b border-blue-950/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <div className="flex items-center">
-              <div className="h-8 w-8 bg-blue-600 rounded-md flex items-center justify-center font-bold">L</div>
-              <span className="ml-2 text-xl font-bold">ShadowShardTools</span>
-            </div>
+            <img
+              src="/Info/favicon.png"
+              alt="Logo"
+              className="h-8 w-8 rounded-full"
+            />
+            <span className="ml-2 text-xl font-bold">ShadowShardTools</span>
           </div>
 
           {/* Desktop Navigation - Always visible on medium screens and above */}

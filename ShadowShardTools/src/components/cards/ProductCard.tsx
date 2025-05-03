@@ -19,7 +19,7 @@ export function ProductCard({ product, className = '' }: ProductCardProps) {
                 <img
                     src={product.imageUrl}
                     alt={product.name}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-42 object-cover"
                 />
             </div>
             <div className="p-5">
