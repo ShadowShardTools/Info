@@ -7,11 +7,7 @@ export interface CardProps {
 
 export function Card({ children, className = '' }: CardProps) {
     return (
-        <div
-            className={`bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg shadow-md overflow-hidden 
-        transition-all duration-300 w-[22rem] h-[18rem]
-        ${className}`}
-        >
+        <div className={`bg-slate-900 border border-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 w-[22rem] h-[19rem] ${className}`}>
             {children}
         </div>
     );

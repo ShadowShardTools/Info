@@ -14,9 +14,8 @@ export default function Header() {
     { name: 'Main', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Contact Us', href: '/contact' }
   ];
 
   const toggleMenu = () => {
@@ -30,7 +29,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <img
-              src="/Info/favicon.png"
+              src={`${import.meta.env.BASE_URL}/favicon.png`}
               alt="Logo"
               className="h-8 w-8 rounded-full"
             />

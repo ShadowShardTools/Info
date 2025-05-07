@@ -9,7 +9,6 @@ import Main from './pages/Main';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
-import Portfolio from './pages/Portfolio';
 import Products from './pages/Products';
 
 const App: React.FC = () => {
@@ -49,7 +48,6 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </main>

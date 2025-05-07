@@ -1,23 +1,60 @@
-// components/ProductCarousel.tsx
+import { useState, useEffect } from 'react';
 import { Carousel } from './carousel/Carousel';
 import { ProductCard, Product } from './cards/ProductCard';
 
 export default function ProductCarousel() {
-  // Sample data
-  const products: Product[] = [
-    { id: 1, name: "3D Character Pack", price: "$24.99", description: "High-quality 3D character models for your game projects", imageUrl: "/api/placeholder/500/300" },
-    { id: 2, name: "Fantasy Environment", price: "$39.99", description: "Complete environment set with trees, rocks, and structures", imageUrl: "/api/placeholder/500/300" },
-    { id: 3, name: "UI Elements Kit", price: "$19.99", description: "Modern UI components for game interfaces", imageUrl: "/api/placeholder/500/300" },
-    { id: 4, name: "Particle Effects Pack", price: "$14.99", description: "Ready-to-use particle effects for various scenarios", imageUrl: "/api/placeholder/500/300" },
-    { id: 5, name: "Game Music Bundle", price: "$29.99", description: "Collection of atmospheric tracks for different game moods", imageUrl: "/api/placeholder/500/300" },
-    { id: 6, name: "Weapon Models Pack", price: "$34.99", description: "Detailed 3D models of fantasy and sci-fi weapons", imageUrl: "/api/placeholder/500/300" }
-  ];
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        // Load the products.json file
+        const response = await fetch('/Info/data/products.json');
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch products data');
+        }
+
+        const data = await response.json();
+
+        // Map the products.json structure to match the Product interface
+        const mappedProducts = data.map((product: any) => ({
+          id: parseInt(product.id),
+          name: product.title,
+          description: product.description,
+          imageUrl: product.image,
+          link: product.ctaLink,
+        }));
+
+        setProducts(mappedProducts);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error loading products:', err);
+        setError('Failed to load products. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-64">Loading products...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500 text-center h-64 flex items-center justify-center">{error}</div>;
+  }
 
   return (
-    <Carousel
-      items={products}
-      renderItem={(product) => <ProductCard product={product} />}
-      title="Featured Products"
-    />
+    <div className="my-8">
+      <Carousel
+        items={products}
+        renderItem={(product) => <ProductCard product={product} />}
+        title="Featured Products"
+      />
+    </div>
   );
 }
