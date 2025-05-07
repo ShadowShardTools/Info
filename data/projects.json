@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Essential GameDev Resources",
+    "description": "A curated collection of resources for game developers, organized by category and subcategory for easy navigation.",
+    "technologies": [
+      "Github Pages"
+    ],
+    "imageUrl": "https://github.com/user-attachments/assets/ccaf418e-38e2-49a6-aa2f-d8488b06bf39",
+    "githubUrl": "https://github.com/ShadowShardTools/Essential-Gamedev-Resources",
+    "liveUrl": "https://shadowshardtools.github.io/Essential-Gamedev-Resources/",
+    "date": "April 2025 - Present",
+    "deprecated": "false"
+  }
+]

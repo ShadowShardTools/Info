@@ -1,0 +1,73 @@
+
+[
+    {
+        "id": "1",
+        "title": "URP Ambient Occlusion Master",
+        "description": "URP Ambient Occlusion Master enhances your workflow with a versatile collection of ambient occlusions.",
+        "features": [
+            "SSAO (Screen Space Ambient Occlusion)",
+            "HDAO (High Definition Ambient Occlusion)",
+            "HBAO (Horizon-Based Ambient Occlusion)",
+            "GTAO (Ground Truth Ambient Occlusion)"
+        ],
+        "image": "https://assetstorev1-prd-cdn.unity3d.com/key-image/b9931bbc-defb-4d0d-b539-93603dadab26.webp",
+        "ctaText": "View in AssetStore",
+        "ctaLink": "https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/urp-ambient-occlusion-master-298353",
+        "categories": [
+            "Graphics"
+        ]
+    },
+    {
+        "id": "2",
+        "title": "URP+ 2023 - Improved Universal Render Pipeline",
+        "description": "Elevate Unity graphics on PC and consoles with URP+, blending URP simplicity with HDRP visuals.",
+        "features": [
+            "Complex shaders",
+            "PBR Lighting models",
+            "Displacement",
+            "Rain/Snow & Weather Controller",
+            "And more..."
+        ],
+        "image": "https://assetstorev1-prd-cdn.unity3d.com/key-image/c6514417-ab06-4cab-be3e-6de539b5acca.webp",
+        "ctaText": "View in AssetStore",
+        "ctaLink": "https://assetstore.unity.com/packages/vfx/shaders/urp-2023-improved-universal-render-pipeline-278910",
+        "categories": [
+            "Graphics"
+        ]
+    },
+    {
+        "id": "3",
+        "title": "URP 3D to Sprite Converter",
+        "description": "Convert 3D models with animations and particles to 2D images in Unity Editor.",
+        "features": [
+            "Custom lighting",
+            "Custom resolution (Point filter - Pixelization)",
+            "Post Processing",
+            "Capture animations/particle systems",
+            "And more..."
+        ],
+        "image": "https://assetstorev1-prd-cdn.unity3d.com/key-image/63e0fd93-230f-43f8-a4b6-eaccf461ce9c.webp",
+        "ctaText": "View in AssetStore",
+        "ctaLink": "https://assetstore.unity.com/packages/tools/utilities/urp-3d-to-sprite-converter-286533",
+        "categories": [
+            "Tools"
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Pre-Integrated SSS LUT Generator",
+        "description": "Generates a LUT for pre-integrated subsurface scattering.",
+        "features": [
+            "Adaptive window",
+            "Sphere preview",
+            "Custom resolution",
+            "And more..."
+        ],
+        "image": "https://assetstorev1-prd-cdn.unity3d.com/key-image/a1990466-844f-49ea-a239-4e9cc5104b78.webp",
+        "ctaText": "View in AssetStore",
+        "ctaLink": "https://assetstore.unity.com/packages/tools/utilities/pre-integrated-sss-lut-generator-291179",
+        "categories": [
+            "Tools"
+        ]
+    }
+]
