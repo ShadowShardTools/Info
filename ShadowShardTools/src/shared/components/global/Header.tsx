@@ -29,7 +29,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <img
-              src={`${import.meta.env.BASE_URL}/favicon.png`}
+              src={`favicon.png`}
               alt="Logo"
               className="h-8 w-8 rounded-full"
             />

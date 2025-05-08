@@ -1,6 +1,22 @@
 import React, { memo, ReactNode } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+// SVG icons as separate components
+const Icons = {
+  LinkedIn: memo(() => (
+      <svg
+          className="w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+      >
+          <title>LinkedIn</title>
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+  ))
+};
+
 // Type definitions
 interface AnimatedSectionProps {
     children: ReactNode;
@@ -10,22 +26,9 @@ interface AnimatedSectionProps {
     className?: string;
 }
 
-interface ValueCardProps {
-    title: string;
-    description: string;
-    icon: ReactNode;
-    isVisible: boolean;
-}
-
 interface SocialLinkProps {
     href: string;
     label: string;
-    icon: ReactNode;
-}
-
-interface ValueData {
-    title: string;
-    description: string;
     icon: ReactNode;
 }
 
@@ -46,19 +49,6 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = memo(({
     </div>
 ));
 
-const ValueCard: React.FC<ValueCardProps> = memo(({ title, description, icon, isVisible }) => (
-    <div
-        className={`bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-xl transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-            }`}
-    >
-        <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-white mb-6">
-            {icon}
-        </div>
-        <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <p className="text-gray-300">{description}</p>
-    </div>
-));
-
 const SocialLink: React.FC<SocialLinkProps> = memo(({ href, label, icon }) => (
     <a
         href={href}
@@ -71,61 +61,6 @@ const SocialLink: React.FC<SocialLinkProps> = memo(({ href, label, icon }) => (
     </a>
 ));
 
-// SVG icons as separate components
-const Icons = {
-    Quality: memo(() => (
-        <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-            />
-        </svg>
-    )),
-
-    Innovation: memo(() => (
-        <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-        </svg>
-    )),
-
-    Community: memo(() => (
-        <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-        </svg>
-    )),
-
-    LinkedIn: memo(() => (
-        <svg
-            className="w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
-            <title>LinkedIn</title>
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-        </svg>
-    ))
-};
-
-// Type for intersection observer result
-interface InViewResult {
-    ref: (node?: Element | null) => void;
-    inView: boolean;
-}
-
 // Main component
 const About: React.FC = () => {
     // Hooks with TypeScript
@@ -133,35 +68,9 @@ const About: React.FC = () => {
     const { ref: brandRef, inView: brandInView } = useInView({ triggerOnce: true });
     const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true });
 
-    // More efficient card animation handling with types
-    const cardRefs: InViewResult[] = [
-        useInView({ triggerOnce: true, threshold: 0.1 }) as InViewResult,
-        useInView({ triggerOnce: true, threshold: 0.1 }) as InViewResult,
-        useInView({ triggerOnce: true, threshold: 0.1 }) as InViewResult
-    ];
-
-    // Values data
-    const values: ValueData[] = [
-        {
-            title: 'Quality',
-            description: 'We never compromise on quality. Every line of code and every user interaction is crafted with care.',
-            icon: <Icons.Quality />
-        },
-        {
-            title: 'Innovation',
-            description: 'We constantly push boundaries and explore new approaches to solving complex problems.',
-            icon: <Icons.Innovation />
-        },
-        {
-            title: 'Community',
-            description: 'We believe in giving back to the developer community and helping others grow and succeed.',
-            icon: <Icons.Community />
-        }
-    ];
-
     return (
         <div className="min-h-screen bg-gray-950 text-white py-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <AnimatedSection inView={headerInView} yOffset={10} className="text-center mb-16">
                     <div ref={headerRef}>
@@ -175,10 +84,10 @@ const About: React.FC = () => {
                 </AnimatedSection>
 
                 {/* Brand Section */}
-                <AnimatedSection inView={brandInView} yOffset={10} className="bg-gray-900 border border-gray-700 rounded-2xl mb-16 overflow-hidden shadow-xl">
+                <AnimatedSection inView={brandInView} yOffset={10} className="bg-gray-900 border border-gray-700 rounded-2xl mb-12 overflow-hidden shadow-xl">
                     <div ref={brandRef}>
                         <div className="px-6 py-6 sm:px-8 border-b border-gray-800">
-                            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">Our Brand</h2>
+                            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">About Brand</h2>
                         </div>
                         <div className="px-6 py-8 sm:px-8">
                             <p className="text-gray-300 mb-6 text-lg">
@@ -193,25 +102,6 @@ const About: React.FC = () => {
                         </div>
                     </div>
                 </AnimatedSection>
-
-                {/* Values Section */}
-                <div className="mb-16">
-                    <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
-                        Our Values
-                    </h2>
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-                        {values.map((value, i) => (
-                            <div key={value.title} ref={cardRefs[i].ref}>
-                                <ValueCard
-                                    title={value.title}
-                                    description={value.description}
-                                    icon={value.icon}
-                                    isVisible={cardRefs[i].inView}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
 
                 {/* About Me Section */}
                 <AnimatedSection inView={aboutInView} yOffset={10} className="bg-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-xl">

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://shadowshardtools.github.io/Info/",
+  "homepage": "https://shadowshardtools.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "@tailwindcss/vite": "^4.1.4",
     "framer-motion": "^12.9.4",
     "lucide-react": "^0.503.0",

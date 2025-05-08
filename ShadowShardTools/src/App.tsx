@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Cursor from "./components/Cursor";
-import CustomScrollbar from "./components/CustomScrollbar";
+import Header from "./shared/components/global/Header"
+import Footer from "./shared/components/global/Footer"
+import Cursor from "./shared/components/global/Cursor"
+import CustomScrollbar from "./shared/components/global/CustomScrollbar"
 
 import Main from './pages/Main';
 import About from './pages/About';
@@ -35,7 +35,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router basename="/Info">
+    <Router basename="/">
       <div className="flex flex-col min-h-screen">
         <Header />
         <Cursor />
