@@ -1,7 +1,9 @@
 import React, { memo, useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 
 // Import the separate components
+import AnimatedSection from '../shared/components/AnimatedSection';
 import FilterableList from '../shared/components/FilterableList';
 import GlowContainer from '../shared/components/GlowContainer';
 import { Product } from '../shared/types';
@@ -12,6 +14,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = memo(({ product, isVisible }) => {
+
   return (
     <div
       className={`transition-all duration-1000 transform h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
@@ -72,6 +75,7 @@ const formatCategoryLabel = (category: string): string => {
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const cta = useInView({ triggerOnce: true, threshold: 0.1 });
 
   // Fetch products data from JSON file
   useEffect(() => {
@@ -119,24 +123,26 @@ const Products: React.FC = () => {
       />
 
       {/* CTA Section with Neon Glow */}
-      <div className="mt-20 mb-12">
-        <GlowContainer>
-          <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Need a custom solution?</h2>
-            <p className="text-gray-300 mb-8 text-lg">
-              If you need customized solutions that perfectly fit your business needs, don't hesitate to contact us.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="block bg-transparent border-2 border-sky-400 text-white text-center py-3 px-6 rounded-lg font-medium hover:shadow-lg hover:shadow-sky-600/30 hover:bg-sky-700 transition-all duration-300"
-              >
-                Contact Us
-              </Link>
+      <AnimatedSection inView={cta.inView} delay={200}>
+        <div className="mt-20 mb-12" ref={cta.ref}>
+          <GlowContainer>
+            <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Need a custom solution?</h2>
+              <p className="text-gray-300 mb-8 text-lg">
+                If you need customized solutions that perfectly fit your business needs, don't hesitate to contact us.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/contact"
+                  className="block bg-transparent border-2 border-sky-400 text-white text-center py-3 px-6 rounded-lg font-medium hover:shadow-lg hover:shadow-sky-600/30 hover:bg-sky-700 transition-all duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-          </div>
-        </GlowContainer>
-      </div>
+          </GlowContainer>
+        </div>
+      </AnimatedSection>
     </div>
   );
 };

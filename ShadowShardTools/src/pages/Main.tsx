@@ -124,9 +124,8 @@ function Main() {
     width: 1000,
   };
   return (
-    <div className="min-h-screen py-64">
+    <div className="min-h-screen pt-24 pb-32 lg:pt-72">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-
         {/* Hero Title */}
         <AnimatedSection inView={heroTitle.inView} delay={0} className="mb-6" >
           <h2 ref={heroTitle.ref} className="text-5xl font-bold sm:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
@@ -136,21 +135,21 @@ function Main() {
 
         {/* Hero Paragraph */}
         <AnimatedSection inView={heroText.inView} delay={150} className="mb-6 max-w-3xl mx-auto">
-          <p ref={heroText.ref} className="text-xl md:text-2xl text-gray-300">
-            Cutting-edge solutions for graphics improvements...
+          <p ref={heroText.ref} className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            Cutting-edge solutions for graphics improvements, performance optimization, and seamless development workflows.
           </p>
         </AnimatedSection>
 
         {/* Buttons */}
-        <AnimatedSection inView={buttons.inView} delay={300} className="mb-72">
+        <AnimatedSection inView={buttons.inView} delay={300} className="mb-40 lg:mb-80">
           <div ref={buttons.ref} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/products" className="group">
-              <span className="block w-full border-2 border-cyan-500 text-white py-3 px-6 rounded-lg hover:bg-cyan-800 transition-all duration-300">
+              <span className="block w-full border-2 border-cyan-500 text-white py-3 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300">
                 Explore Products
               </span>
             </Link>
             <Link to="/projects" className="group">
-              <span className="block w-full border-2 border-purple-500 text-white py-3 px-6 rounded-lg hover:bg-purple-800 transition-all duration-300">
+              <span className="block w-full border-2 border-purple-500 text-white py-3 px-6 rounded-lg hover:bg-purple-600 transition-all duration-300">
                 Explore Projects
               </span>
             </Link>
@@ -158,11 +157,14 @@ function Main() {
         </AnimatedSection>
 
         {/* Values Section */}
-        <AnimatedSection inView={valuesSection.inView} delay={0} className="w-full mb-72">
+        <AnimatedSection inView={valuesSection.inView} delay={0} className="w-full mb-40 lg:mb-80">
           <div ref={valuesSection.ref}>
-            <h2 className="text-3xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+            <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
               Our Values
             </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-12 text-lg">
+              The core principles that guide everything we do
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {values.map((value, i) => (
                 <div key={value.title} ref={cardRefs[i].ref} className="flex justify-center">
@@ -190,17 +192,14 @@ function Main() {
             <Splide options={splideOptions} hasTrack={false}>
               <SplideTrack>
                 {[
-                  "e0f00866-d0de-4b05-94bf-601b596601e7",
-                  "3b3cf601-f6fd-47e3-a97f-40a707338246",
-                  "f490e3a1-8a0d-46b9-ad0c-e5b032b8d2ab",
-                  "d9989707-9be1-4268-ad75-eb9558d2d664",
-                  "5603addc-9fc1-4446-9ead-c16046901b55",
-                  "5791a23b-db89-46bd-8c0f-ac7cf3b378b3",
-                  "4e87370a-1d98-4016-99a9-8b7e591279b3",
+                  "b9931bbc-defb-4d0d-b539-93603dadab26",
+                  "c6514417-ab06-4cab-be3e-6de539b5acca",
+                  "63e0fd93-230f-43f8-a4b6-eaccf461ce9c",
+                  "a1990466-844f-49ea-a239-4e9cc5104b78",
                 ].map((id, idx) => (
                   <SplideSlide key={id}>
                     <img
-                      src={`https://assetstorev1-prd-cdn.unity3d.com/package-screenshot/${id}.webp`}
+                      src={`https://assetstorev1-prd-cdn.unity3d.com/key-image/${id}.webp`}
                       alt={`Product ${idx + 1}`}
                       className="rounded-xl shadow-lg transition-opacity duration-1000 ease-in-out"
                     />
