@@ -29,7 +29,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <img
-              src={`favicon.png`}
+              src={`https://avatars.githubusercontent.com/u/107807003?v=4`}
               alt="Logo"
               className="h-8 w-8 rounded-full"
             />
