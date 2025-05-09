@@ -75,7 +75,7 @@ const formatCategoryLabel = (category: string): string => {
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const cta = useInView({ triggerOnce: true, threshold: 0.1 });
+  const cta = useInView({ triggerOnce: false, threshold: 0.1 });
 
   // Fetch products data from JSON file
   useEffect(() => {

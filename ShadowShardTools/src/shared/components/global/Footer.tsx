@@ -4,11 +4,11 @@ import Icons from '../../Icons';
 
 const Footer = () => {
   useEffect(() => {
-    const year = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
     const yearElement = document.getElementById('year');
 
     if (yearElement) {
-      yearElement.textContent = year.toString();
+      yearElement.textContent = `2021-${currentYear}`;
     }
   }, []);
 
