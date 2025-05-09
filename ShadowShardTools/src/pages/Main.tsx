@@ -93,7 +93,7 @@ function Main() {
         wheelSleep: 500,             // enable mouse wheel scroll
         drag: true,
         snap: true,
-        flickPower: 10
+        flickPower: 100
       }}
       className="main-carousel"
       aria-label="Full page vertical carousel"
