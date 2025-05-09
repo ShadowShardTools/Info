@@ -91,8 +91,9 @@ function Main() {
         pagination: true,
         wheel: true,
         wheelSleep: 500,             // enable mouse wheel scroll
-        drag: false,
-        snap: false,
+        drag: true,
+        snap: true,
+        flickPower: 10
       }}
       className="main-carousel"
       aria-label="Full page vertical carousel"
