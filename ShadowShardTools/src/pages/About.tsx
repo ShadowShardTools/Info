@@ -54,14 +54,18 @@ const About: React.FC = () => {
     const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true });
 
     return (
-        <div className="min-h-screen bg-gray-950 text-white py-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className='min-h-screen py-12'>
                 {/* Header */}
                 <AnimatedSection inView={headerInView} yOffset={10} className="text-center mb-16">
                     <div ref={headerRef}>
                         <h1 className="text-5xl font-bold sm:text-6xl lg:text-7xl">
-                            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">ShadowShardTools</span>
+                            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                                <span className="inline sm:hidden">Shadow Shard Tools</span>
+                                <span className="hidden sm:inline">ShadowShardTools</span>
+                            </span>
                         </h1>
+
                         <p className="mt-6 max-w-xl mx-auto text-xl text-gray-300">
                             Crafting next-generation tools for digital innovators
                         </p>
@@ -82,7 +86,7 @@ const About: React.FC = () => {
                                 We specialize in developing custom rendering solutions that extend the capabilities of Unity. Each tool we release undergoes rigorous testing in real development environments to ensure it delivers both performance optimization and visual enhancement. We believe that technical tools should be both powerful and accessible, enabling developers of all skill levels to achieve professional-quality results.
                             </p>
                             <p className="text-gray-300 text-lg">
-                            At ShadowShardTools, we're committed to supporting the Unity development community with specialized solutions that solve specific technical challenges in rendering and asset optimization.
+                                At ShadowShardTools, we're committed to supporting the Unity development community with specialized solutions that solve specific technical challenges in rendering and asset optimization.
                             </p>
                         </div>
                     </div>
