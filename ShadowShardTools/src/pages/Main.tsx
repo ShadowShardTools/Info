@@ -21,15 +21,15 @@ interface ValueData {
 
 const ValueCard: React.FC<ValueCardProps> = memo(({ title, description, icon, isVisible }) => (
   <div
-    className={`bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-xl transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-      }`}
+    className={`bg-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl transition-all duration-1000 transform ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+    }`}
   >
-    {/* Improved icon centering with proper flex container */}
-    <div className="flex items-center justify-center mx-auto h-16 w-16 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-white mb-6">
+    <div className="flex items-center justify-center mx-auto h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-white mb-2 sm:mb-5 md:mb-6">
       {icon}
     </div>
-    <h3 className="text-xl font-bold mb-3 text-center">{title}</h3>
-    <p className="text-gray-300 text-center">{description}</p>
+    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-center">{title}</h3>
+    <p className="text-gray-300 text-sm sm:text-base text-center">{description}</p>
   </div>
 ));
 
@@ -131,13 +131,13 @@ function Main() {
       <SplideSlide>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center items-center text-center" style={{ minHeight: 'calc(100vh - 4rem)' }}>
           <AnimatedSection inView={valuesSection.inView} delay={0}>
-            <div className='mt-[-50px]' ref={valuesSection.ref}>
-              <AnimatedSection inView={valuesHeader.inView} delay={0} className="mb-6">
+            <div className='mt-[-50px] md:mt-[-25px]' ref={valuesSection.ref}>
+              <AnimatedSection inView={valuesHeader.inView} delay={0} className="mb-2 md:mb-8">
                 <h2 ref={valuesHeader.ref} className="text-5xl font-bold sm:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
                   Our Values
                 </h2>
               </AnimatedSection>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                 {values.map((value, i) => (
                   <div key={value.title} ref={cardRefs[i].ref} className="flex justify-center">
                     <ValueCard
